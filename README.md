@@ -10,6 +10,8 @@
 
 这是 **MIT 源码 Beta**。开发实测环境为 macOS 13 Ventura / Intel，最低系统版本声明为 macOS 12。Apple Silicon 和其他 macOS 版本尚未验证。
 
+**安装方式**　当前提供源码，请在 Mac 上按步骤自行构建。 [跳到安装步骤](#从源码构建)
+
 ## 首发宣言
 
 > **《大声说 DASHVOICE：对硅基世界的一次物理越权》**
@@ -74,17 +76,19 @@ open /Applications/DashVoice.app
 
 - 点击菜单栏图标、悬浮按钮或按 `⌥Space` 开始和停止录音。停止后收到的文字可以自动键入、预览或复制。
 - 自动键入前逐批核对原输入框。切换焦点、进入安全输入或目标不可读时，停止自动键入。微信等无法读取输入框的应用可用剪贴板。
-- 默认模型为 `qwen3-asr-flash`。模型设置保留；`qwen-audio-3.1-asr-flash` 是预留项，当前兼容接口未接通，日常使用请选择默认模型。
+- **识别模型**　日常使用选默认的 `qwen3-asr-flash`，这是当前实测可用的模型。`qwen-audio-3.1-asr-flash` 保留给后续接入，当前接口未接通。
 - 录音会发送到配置的识别服务；云端费用按你自己的账户计费。见[隐私与数据](docs/PRIVACY.md)和[权限与签名](docs/PERMISSIONS.md)。
 
 ## 离线测试
+
+如果你改了代码，可以用这组测试检查流式响应解析、文本清理和输入目标判断。测试用模拟数据，不发送录音、不消耗 API 额度。
 
 ```bash
 swiftc -O Sources/DashVoiceCore/*.swift Sources/DashVoiceTests/main.swift -o /tmp/dv-tests
 /tmp/dv-tests
 ```
 
-离线测试不需要真实 API Key。使用问题可查阅[排障指南](docs/TROUBLESHOOTING.md)，安全问题见[报告说明](docs/SECURITY.md)。
+使用问题可查阅[排障指南](docs/TROUBLESHOOTING.md)，安全问题见[报告说明](docs/SECURITY.md)。
 
 ## 许可证
 

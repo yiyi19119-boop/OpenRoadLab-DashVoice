@@ -4,13 +4,17 @@
 
 [中文说明](README.md)
 
-DashVoice is a macOS menu-bar dictation app. Press `⌥Space` to record and press it again to stop. DashVoice sends the recording to Alibaba Cloud Model Studio for transcription and types the result into the original field when it can verify the target. It copies the result to the clipboard when the target cannot be verified.
+**Stop typing. Start talking.** DashVoice is a small macOS menu bar app for getting thoughts out of your head and into a text field. It started on an old Intel Mac, with one idea: your agent can handle a little rambling, so give it the whole story.
 
-This is a **source beta under the MIT license**. The development build was tested on macOS 13 Ventura on Intel. The declared minimum is macOS 12. Apple Silicon and other macOS versions are unverified.
+Press `⌥Space` to record, then press it again to stop. DashVoice transcribes what you said and types it into the original field when it can verify the target. Otherwise, it copies the text to the clipboard. You decide when to hit Send.
+
+**Install** · This MIT-licensed beta is available as source code. [Build it on your Mac](#build-from-source).
+
+Tested on macOS 13 Ventura on Intel. The app declares macOS 12 as its minimum. Apple Silicon and other macOS versions are still untested.
 
 ## Build from source
 
-You need Xcode Command Line Tools and your own DashScope API key.
+You'll need the Xcode Command Line Tools. For transcription, bring your own Alibaba Cloud DashScope API key.
 
 ```bash
 git clone https://github.com/yiyi19119-boop/OpenRoadLab-DashVoice.git
@@ -18,7 +22,7 @@ cd OpenRoadLab-DashVoice
 scripts/build.sh
 ```
 
-The build produces `build/DashVoice.app`. To sign locally and install to `/Applications`:
+The build creates `build/DashVoice.app`. To sign it locally, install it in `/Applications`, and launch it:
 
 ```bash
 scripts/sign.sh --mode local --bootstrap
@@ -26,19 +30,23 @@ scripts/install.sh
 open /Applications/DashVoice.app
 ```
 
-Grant Microphone access when prompted. For automatic typing, add DashVoice under Privacy & Security → Accessibility. Enter your own API key in the app's Settings. DashVoice stores it in a dedicated Keychain item. The source ships without a key.
+Allow microphone access when prompted. For automatic typing, add DashVoice in System Settings under Privacy & Security → Accessibility. Open Settings from the DashVoice menu and enter your DashScope API key. The app stores it in your macOS Keychain.
 
-## Models and privacy
+## Models, cost, and compatibility
 
-The default model is `qwen3-asr-flash`. The settings retain the `qwen-audio-3.1-asr-flash` option for future integration. It does not work with the current compatible endpoint. Use the default model for dictation.
-
-Recordings go to the configured transcription endpoint, and the provider bills your account. See the [privacy notes](docs/PRIVACY.md) and [permissions guide](docs/PERMISSIONS.md).
+- **Use `qwen3-asr-flash` for everyday dictation.** It's the tested default. The `qwen-audio-3.1-asr-flash` option is reserved for a future integration and unavailable through the current endpoint.
+- DashVoice is free. By default, recordings go to Alibaba Cloud Model Studio for transcription, and usage is billed to your DashScope account. Your agent's model usage is billed separately by its provider. [Privacy details](docs/PRIVACY.md)
+- If the original field can't be verified, look for the text on your clipboard. That's the fallback in the Firefox and WeChat scenarios tested so far.
 
 ## Offline tests
+
+Changing the code? Run these tests to check streaming response parsing, text cleanup, and input-target checks. The tests use fixtures and stubs, with zero API usage.
 
 ```bash
 swiftc -O Sources/DashVoiceCore/*.swift Sources/DashVoiceTests/main.swift -o /tmp/dv-tests
 /tmp/dv-tests
 ```
+
+Ran into a snag? Share your macOS version, chip, and steps to reproduce in [GitHub Issues](https://github.com/yiyi19119-boop/OpenRoadLab-DashVoice/issues). Keep your API key, recordings, and private transcripts to yourself.
 
 [MIT](LICENSE) © OpenRoad Lab.
