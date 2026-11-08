@@ -14,6 +14,10 @@
 
 ## 首发宣言
 
+<p align="center">
+  <a href="assets/posters/code-out-loud.png"><img src="assets/posters/code-out-loud-preview.webp" width="224" alt="以前写代码靠敲，现在写代码靠吼"></a>
+</p>
+
 > **《大声说 DASHVOICE：对硅基世界的一次物理越权》**
 >
 > 自图灵时代起，人类就在委屈自己。为了迎合死板的机器，我们发明了汇编、C++，把鲜活的思想压缩成几行干瘪的 Prompt。我们小心翼翼地敲击键盘，生怕多打了一个空格。
@@ -29,6 +33,10 @@
 上面是品牌宣言。预览版通过 macOS 辅助功能确认输入目标，能确认才自动键入。微信等无法确认目标的场景使用剪贴板。
 
 ## 生存指南
+
+<p align="center">
+  <a href="assets/posters/think-before-sending.png"><img src="assets/posters/think-before-sending-preview.webp" width="224" alt="嗓门可以大，删除范围要小"></a>
+</p>
 
 **下载、安装，或者对着电脑大吼之前，先花半分钟，免得把赛博小事搞成赛博惨案。**
 
@@ -54,6 +62,10 @@
 
 ## 从源码构建
 
+<p align="center">
+  <a href="assets/posters/old-intel-mac.png"><img src="assets/posters/old-intel-mac-preview.webp" width="224" alt="老 Intel Mac，还能吼"></a>
+</p>
+
 需要 Xcode Command Line Tools 和自己的阿里云百炼 DashScope API Key。
 
 ```bash
@@ -73,6 +85,10 @@ open /Applications/DashVoice.app
 首次录音时允许麦克风权限。若要启用自动键入，在系统设置的「隐私与安全性 → 辅助功能」中添加 DashVoice。进入菜单栏「设置」填写你自己的 API Key。应用将它保存到专用钥匙串条目；源码未内置 Key。
 
 ## 使用与限制
+
+<p align="center">
+  <a href="assets/posters/speak-to-type.png"><img src="assets/posters/speak-to-type-preview.webp" width="224" alt="张嘴，字就来了"></a>
+</p>
 
 - 点击菜单栏图标、悬浮按钮或按 `⌥Space` 开始和停止录音。停止后收到的文字可以自动键入、预览或复制。
 - 自动键入前逐批核对原输入框。切换焦点、进入安全输入或目标不可读时，停止自动键入。微信等无法读取输入框的应用可用剪贴板。
