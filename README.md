@@ -1,13 +1,47 @@
-# 大声说 DashVoice
+# 大声说 DASHVOICE
 
-大声说 DashVoice：支持可配置语音识别后端的 macOS 语音输入工具。
+[English README](README.en.md)
 
-## 项目定位
+大声说是一个 macOS 菜单栏语音输入工具。按 `⌥Space` 开始录音，再按一次停止。它会把录音发到阿里云百炼转成文字，并将结果键入原输入框。无法确认输入框时，结果复制到剪贴板。
 
-大声说负责录音、调用语音识别后端、接收文字并安全填入目标输入框。产品按可更换识别后端的方向设计，不绑定单一模型或服务商。
+这是 **MIT 源码 Beta**。开发实测环境为 macOS 13 Ventura / Intel，最低系统版本声明为 macOS 12。Apple Silicon 和其他 macOS 版本尚未验证。
 
-当前开发测试使用阿里云 DashScope；其他云端服务或本地模型需通过相应适配接入，尚未全部验证。发布包不包含平台 API Key；使用时由用户自行配置后端及所需凭证。
+## 从源码构建
 
-## 当前状态
+需要 Xcode Command Line Tools 和自己的阿里云百炼 DashScope API Key。
 
-本仓库正在准备首个开源 Beta，源码和构建、安装说明尚在整理，暂未发布可下载的安装包。
+```bash
+git clone https://github.com/yiyi19119-boop/OpenRoadLab-DashVoice.git
+cd OpenRoadLab-DashVoice
+scripts/build.sh
+```
+
+构建生成 `build/DashVoice.app`。如需签名并安装到 `/Applications`，可在本机运行：
+
+```bash
+scripts/sign.sh --mode local --bootstrap
+scripts/install.sh
+open /Applications/DashVoice.app
+```
+
+首次录音时允许麦克风权限。若要启用自动键入，在系统设置的「隐私与安全性 → 辅助功能」中添加 DashVoice。进入菜单栏「设置」填写你自己的 API Key。应用将它保存到专用钥匙串条目；源码未内置 Key。
+
+## 使用与限制
+
+- 点击菜单栏图标、悬浮按钮或按 `⌥Space` 开始和停止录音。停止后收到的文字可以自动键入、预览或复制。
+- 自动键入前逐批核对原输入框。切换焦点、进入安全输入或目标不可读时，停止自动键入。微信等无法读取输入框的应用可用剪贴板。
+- 默认模型为 `qwen3-asr-flash`。模型设置保留；`qwen-audio-3.1-asr-flash` 是预留项，当前兼容接口未接通，日常使用请选择默认模型。
+- 录音会发送到配置的识别服务；云端费用按你自己的账户计费。见[隐私与数据](docs/PRIVACY.md)和[权限与签名](docs/PERMISSIONS.md)。
+
+## 离线测试
+
+```bash
+swiftc -O Sources/DashVoiceCore/*.swift Sources/DashVoiceTests/main.swift -o /tmp/dv-tests
+/tmp/dv-tests
+```
+
+离线测试不需要真实 API Key。使用问题可查阅[排障指南](docs/TROUBLESHOOTING.md)，安全问题见[报告说明](docs/SECURITY.md)。
+
+## 许可证
+
+[MIT](LICENSE) © OpenRoad Lab。
