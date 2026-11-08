@@ -1,5 +1,7 @@
 # 大声说 DASHVOICE
 
+![大声说 DASHVOICE，男孩喊出彩色代码与计算机零件](assets/dashvoice-banner.jpg)
+
 [English README](README.en.md)
 
 大声说是一个 macOS 菜单栏语音输入工具。按 `⌥Space` 开始录音，再按一次停止。它会把录音发到阿里云百炼转成文字，并将结果键入原输入框。无法确认输入框时，结果复制到剪贴板。
