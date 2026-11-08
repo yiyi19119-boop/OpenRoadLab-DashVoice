@@ -1,6 +1,6 @@
 # 大声说 DASHVOICE
 
-![大声说 DASHVOICE，男孩喊出彩色代码与计算机零件](assets/dashvoice-banner.jpg)
+[![大声说 DASHVOICE。别再用敲的，用吼的。把干瘪的 Prompt 扔进垃圾桶，用最丰饶的废话喂饱你的 Agent。](assets/dashvoice-banner.jpg)](https://github.com/yiyi19119-boop/OpenRoadLab-DashVoice)
 
 [English README](README.en.md)
 
