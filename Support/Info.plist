@@ -6,6 +6,8 @@
 	<string>大声说 DashVoice</string>
 	<key>CFBundleExecutable</key>
 	<string>DashVoice</string>
+	<key>CFBundleIconFile</key>
+	<string>DashVoice.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.dashvoice2.app</string>
 	<key>CFBundleName</key>
@@ -23,6 +25,6 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>DashVoice 需要使用麦克风，将您说的话转成文字并填入 ZCode 输入框。</string>
+	<string>DashVoice 需要使用麦克风，将您说的话转成文字。</string>
 </dict>
 </plist>

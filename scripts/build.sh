@@ -15,7 +15,7 @@ done
 
 BUNDLE_ID=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' Support/Info.plist)  # 单一来源（DV-011）
 APP=build/DashVoice.app
-mkdir -p "$APP/Contents/MacOS" build/tests
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" build/tests
 
 [ "$QUIET" = 0 ] && echo "[build] swiftc 编译（Core+App）..."
 swiftc -O \
@@ -26,6 +26,7 @@ swiftc -O \
   -framework Carbon -framework CoreGraphics -framework UserNotifications -framework Security
 
 cp Support/Info.plist "$APP/Contents/Info.plist"
+cp Support/DashVoice.icns Support/DashVoiceMenuBar.png "$APP/Contents/Resources/"
 BUILT_ID=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Contents/Info.plist")
 [ "$BUILT_ID" = "$BUNDLE_ID" ] || { echo "❌ 构建后 ID 不一致: $BUILT_ID != $BUNDLE_ID"; exit 1; }
 

@@ -1,5 +1,7 @@
 # DASHVOICE
 
+<img src="assets/dashvoice-logo.jpg" width="120" alt="DashVoice app icon">
+
 [中文说明](README.md)
 
 DashVoice is a macOS menu-bar dictation app. Press `⌥Space` to record and press it again to stop. DashVoice sends the recording to Alibaba Cloud Model Studio for transcription and types the result into the original field when it can verify the target. It copies the result to the clipboard when the target cannot be verified.

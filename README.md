@@ -2,6 +2,8 @@
 
 [![大声说 DASHVOICE。别再用敲的，用吼的。把干瘪的 Prompt 扔进垃圾桶，用最丰饶的废话喂饱你的 Agent。](assets/dashvoice-banner.jpg)](https://github.com/yiyi19119-boop/OpenRoadLab-DashVoice)
 
+<img src="assets/dashvoice-logo.jpg" width="120" alt="大声说应用图标">
+
 [English README](README.en.md)
 
 大声说是一个 macOS 菜单栏语音输入工具。按 `⌥Space` 开始录音，再按一次停止。它会把录音发到阿里云百炼转成文字，并将结果键入原输入框。无法确认输入框时，结果复制到剪贴板。
@@ -16,7 +18,7 @@
 >
 > 但时代变了。当 Transformer 承载着几千亿参数的暴力算力降临，**机器的阅读理解能力，早已超越了人类的打字速度。**
 >
-> 「大声说 DASHVOICE」诞生于一台早已落后于时代的 Intel Mac。它拒绝妥协，硬生生凿穿了 Chrome、Firefox 甚至是微信的底层沙箱封锁。它的逻辑极其狂妄：**既然 AI 算力无穷，凭什么还要人类去精简语言？**
+> 「大声说 DASHVOICE」诞生于一台早已落后于时代的 Intel Mac。它从菜单栏冲进日常工作流，让你对着支持的输入框直接开口。它的逻辑极其狂妄：**既然 AI 算力无穷，凭什么还要人类去精简语言？**
 >
 > 把那些寒暄、前因后果、碎碎念，统统大声说出来。**因为废话，就是喂给 Agent 最顶级的上下文；含糊的指令，才是赛博灾难的源头。**
 >

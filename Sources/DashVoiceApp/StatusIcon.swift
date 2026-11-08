@@ -1,12 +1,19 @@
 import AppKit
 
-/// 菜单栏图标（CHAT-08）：用 NSBezierPath 自绘，不依赖 SF Symbol。
-/// 尺寸 18×18，template=false（保留颜色），支持 idle/recording/processing 三态。
+/// 待机使用品牌图标，录音和处理保留彩色状态提示。
 enum StatusIcon {
     enum Kind { case idle, recording, processing }
 
     static func make(_ kind: Kind) -> NSImage {
         let size = NSSize(width: 18, height: 18)
+        if kind == .idle,
+           let url = Bundle.main.url(forResource: "DashVoiceMenuBar", withExtension: "png"),
+           let icon = NSImage(contentsOf: url) {
+            icon.size = size
+            icon.isTemplate = true
+            return icon
+        }
+
         let img = NSImage(size: size, flipped: false) { rect in
             let color: NSColor
             switch kind {
